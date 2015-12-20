@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Data Transportasi Laut Perprovinsi">
+    <meta name="author" content="">
+
+    <title>Data Transportasi Laut Perprovinsi</title>
+	
+   <meta name="dicoding:email" content="abdul.muhit.t@gmail.com">
+   
+  <script type="text/javascript" src="d3.min.js"></script>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="pelabuhan.js"></script>  
+	<script src="d3.geo.projection.min.js"></script>
+	<script src="topojson.js"></script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<link href="pelabuhan.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+  
+  <header>
+<div id="logo">
+<a href="http://fantaseen7.blogspot.co.id/" target="_blank">
+<img src="http://1.bp.blogspot.com/-KyywIsHR2Rk/VnBCfA7WcDI/AAAAAAAAAIM/OENtvIKbd0A/s1600/logofantaseen128.png" alt="click to fantaseen blog">
+</a>
+  </div>
+<div id="contentheader">
+<h1>Data Transportasi Laut Perprovinsi 2009</h1>
+</div>
+</header>
+<section>
+<article>
+<h1>Perbandingan Expor Impor Pelabuhan di Indonesia</h1>
+
+<p>Seperti yang kita ketahui bersama, pelabuhan memiliki peran penting dalam distribusi barang dan jasa. Walaupun tergolong memakan waktu yang cukup lama, namun untuk mendistribusikan barang dan jasa di wilayah Nusantara yang di dominasi oleh banyak pulau dan dipisahkan oleh lautan, transportasi laut masih merupakan sarana terbaik yang kita andalkan.</p>
+<p>Berdasarkan data dari data.go.id, kami mencoba lebih menjabarkan data tersebut dengan 2 tipe visualisi data, yaitu peta untuk menunjukan lokasi dan barchart yang lebih menampilkan perbandingan ekspor, import dan selisih ekpor impor dari tiap pelabuhan yang kita miliki.</p>
+<p>Melalui data ini diharapkan kita dapat mengetahui pelabuhan yang manakah yang paling banyak memuat barang untuk di kirim, membongkar barang yang diterima, juga selisihnya. Dengan semakin banyak/sibuknya pelabuhan tersebut, tentu akan berdampak besar terhadap perkembangan dan pembangunan di wilayah tersebut.</p>
+
+<h2>Berikut kami tampilkan petanya.</h2>
+<p>*Klik/sentuh lingkaran pada peta untuk mendapatkan detail data.</p>
+<p>*Klik/sentuh peta untuk zoom</p>
+</article>
+
+<div id="container" style="width:900px;height:500px;margin:0px;opacity:0;border:solid 1px #99d8c9;">
+</section>
+<section>
+<article>
+<h1>Perbandingan dengan menggunakan Bar-chart</h1>
+
+<p>Sayangnya, dari data yang kami peroleh, masih kurang jelas dalam hal apakah data ekspor dan impor ini adalah barang dan juga jasa(penumpang), ataukah salah satunya saja, juga kami juga kurang paham mengenai jumlah, apakah dalam satuan berat atau juga dalam hal jumlah penumpang(manusia/jasa).</p>
+<p>Sehubungan dengan kurangnya waktu untuk lebih meneliti atau menghubungi pihak data.go.id, kami mencoba menerjemahkan data tersebut sebisanya.</p>
+
+<h2>Berikut kami tampilkan data tersebut dalam bentuk bar-chart.</h2>
+<div id="chart-container"></div>      
+<aside>
+<div class ="pilihan">
+	<select>
+		<option id="item" value="tSelisih">Selisih Expor Impor</option>
+		<option id="item" value="tMuat">Total Muat (Expor)</option>
+		<option id="item" value="tBongkar">Total Bongkar (Impor)</option>
+	</select>
+			  <ul>
+                  <li><input type="checkbox" class="checkbox" name="check" value="sort"> </li>
+                  <li>Urutkan!</li>
+                </ul>
+</div>
+
+<h2>Keterangan :</h2>
+<ul id="keterangan">
+<li>Klik/sentuh barchart untuk mendapatkan detail data.</li>
+<li>Pilih data yang hendak dibandingkan.</li>
+<li>Klik "urutkan" untuk mengurutkan data.</li></ul>
+</aside>
+
+</article>
+
+<p id="end">Mudah-mudahan visualisasi data ini dapat bermanfaat bagi anda. <br>Terimakasih.</p>
+
+</section>
+<footer>
+<div id="left-footer">
+<a href="https://www.dicoding.com" target="_blank">
+  <img src="https://www.dicoding.com/img/logo_putih.png" alt="click to dicoding">
+</a>
+</div>
+<div id="middle-footer">
+<div id="social">
+	<span class='st_facebook'></span>
+	<span class='st_twitter'></span>
+	<span class='st_googleplus'></span>
+	<span class='st_linkedin'></span>
+	<span class='st_tumblr'></span>
+	<span class='st_reddit'></span>
+	<span class='st_email'></span>
+</div>
+<div id="credits">	
+	<p>Data didapatkan dari <a href="http://www.data.go.id" target="_blank">website data.go.id</a></p>
+	<p style="font-size:14px">Abdul Muhit (fantaseen) 2015</p>
+</div>
+
+</div>
+<div id="right-footer">
+<a href="http://data.go.id" target="_blank">
+  <img src="http://data.go.id/wp-content/themes/roots-nextdatagoid/assets/img/logo.png" alt="click to data.go.id">
+</a>
+
+</div>
+</footer>
+	
+  </body>
+  </html>
