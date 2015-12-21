@@ -13,7 +13,6 @@ body {
 	position: relative;
 	margin: 20px auto 0 auto;
 	background: rgba(182, 191, 201, 0.8);
-	
 	-webkit-box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
 	-moz-box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
 	box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
@@ -36,7 +35,6 @@ body {
 	shape-rendering: crispEdges;
 	}
 .axis text {
-			
 	font-size: 10px;	
 	}
 	
@@ -88,7 +86,6 @@ header {
 	vertical-align:middle;
 }
 
-
 #contentheader {	
 	max-width:900px;
 	width:80%;
@@ -132,7 +129,6 @@ div.tooltip {
 	vertical-align: middle;   
 	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
 	pointer-events: none;                  
-	
 }
 		   
 footer {
@@ -142,10 +138,9 @@ footer {
 	max-width:900px;
 	width: 100%;
 	border-radius: 10px;
-	
 }
+
 #left-footer {
-	
 	height:100px;
 	float:left;
 	background-color: #344658;
@@ -171,7 +166,6 @@ footer {
 }
 
 #middle-footer {
-	
 	height:100px;
 	float:right;
 	background-color: #2C3E50;
@@ -182,11 +176,9 @@ footer {
     	white-space: nowrap;
     	text-align: center;
 	display: inline-block;
-	
 }
 
 #right-footer {
-	
 	height:100px;
 	float:right;
 	background-color: #344658;
