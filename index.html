@@ -8,19 +8,18 @@
     <meta name="author" content="">
 
     <title>Data Transportasi Laut Perprovinsi</title>
-    
-   <meta name="dicoding:email" content="abdul.muhit.t@gmail.com">
-   
-	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js">
-	<link href="pelabuhan.css" rel="stylesheet">
+	
+	<meta name="dicoding:email" content="abdul.muhit.t@gmail.com">
+    	<link href="pelabuhan.css" rel="stylesheet">
+
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	
   </head>
 
   <body>
-<script>
+  <script>
   
   var dataset;
 
@@ -42,7 +41,7 @@
 						.rangeRoundBands([padding,h+padding],.5);
 
 		//Create y axis
-		var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(10);
+		var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(10);//.tickFormat(formatPercent);
 
 		//Define key function
 		var key = function(d){return d.nama_provinsi};
@@ -75,6 +74,7 @@
 	    		}
 
 			});
+
 
 		//Initialize state of chart according to drop down menu
 		var state = d3.selectAll("option");
@@ -307,6 +307,7 @@ var tipshow = function() {
 			'</td></tr><tr><td>Total Muat: </td><td>'
 			+tiptext[0].total_muat+'</td></tr><tr><td>selisih ekspor impor: </td><td>'
 			+tiptext[0].selisih_ekspor_impor+'</td></tr>'
+		
 			return tt+
 			'</table>';
 		})
@@ -314,6 +315,7 @@ var tipshow = function() {
 		.style("top", (d3.event.pageY) + "px");
 
 }
+
 
 var tiphide = function() {
 	tooltipdiv.style("visibility", "hidden");
@@ -410,6 +412,7 @@ function reset() {
   svg.transition()
       .duration(750)
       .call(zoom.translate([defaultTranslateX, defaultTranslateY]).scale(defaultZoom).event);
+
 }
 
 function zoomed() {
@@ -450,7 +453,6 @@ document.getElementById("container").style.TransformOrigin = "0 0";
 
 };
 
-
 window.onresize = function() {
 rescale();
 }
@@ -463,13 +465,14 @@ rescale();
 });
   
 </script>
-
-  <header>
+  
+<header>
 <div id="logo">
 <a href="http://fantaseen7.blogspot.co.id/" target="_blank">
 <img src="http://1.bp.blogspot.com/-KyywIsHR2Rk/VnBCfA7WcDI/AAAAAAAAAIM/OENtvIKbd0A/s1600/logofantaseen128.png" alt="click to fantaseen blog">
 </a>
-  </div>
+</div>
+
 <div id="contentheader">
 <h1>Data Transportasi Laut Perprovinsi di tahun 2009</h1>
 </div>
@@ -531,13 +534,16 @@ rescale();
 	<p>Data didapatkan dari <a href="http://www.data.go.id" target="_blank">website data.go.id</a></p>
 	<p style="font-size:14px">Abdul Muhit (fantaseen) 2015</p>
 </div>
+
 </div>
 <div id="right-footer">
 
 <a href="http://data.go.id" target="_blank">
-  <img src="http://data.go.id/wp-content/themes/roots-nextdatagoid/assets/img/logo.png" alt="click to data.go.id"></a>
+  <img src="http://data.go.id/wp-content/themes/roots-nextdatagoid/assets/img/logo.png" alt="click to data.go.id">
+</a>
 
 </div>
 </footer>
-</body>
-</html>
+	
+  </body>
+  </html>
