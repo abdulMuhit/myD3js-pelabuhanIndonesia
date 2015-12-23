@@ -55,4 +55,6 @@ Link-link profile untuk lebih mengenal developer :
 
 3. Fantaseen fb di : https://www.facebook.com/fantaseen
 
+ps. view website Data Transportasi Laut Perprovinsi-nya dapat di lihat/di akses melalui link : http://abdulmuhit.github.io/myD3js-pelabuhanIndonesia/index.html
+
 Terimakasih
