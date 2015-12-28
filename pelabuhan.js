@@ -253,7 +253,7 @@ var tipshow = function() {
 			return tt+
 			'</table>';
 		})
-		.style("left", (d3.event.pageX - 200) + "px")
+		.style("left", (d3.event.pageX - 50) + "px")
 		.style("top", (d3.event.pageY) + "px");
 }
 
