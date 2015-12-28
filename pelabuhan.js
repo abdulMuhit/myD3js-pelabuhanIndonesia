@@ -64,7 +64,7 @@ var dataset;
 					
 		var info = div
 			.style("opacity", 1)
-			.style("left", (d3.event.pageX-150) + "px")
+			.style("left", (d3.event.pageX-50) + "px")
 			.style("top", (d3.event.pageY-30) + "px")
 			.text(d.nama_provinsi);
 					
