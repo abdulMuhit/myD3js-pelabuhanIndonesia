@@ -58,3 +58,11 @@ Link-link profile untuk lebih mengenal developer :
 ps. view website Data Transportasi Laut Perprovinsi-nya dapat di lihat/di akses melalui link : http://abdulmuhit.github.io/myD3js-pelabuhanIndonesia/index.html
 
 Terimakasih
+
+update 28/12/2015
+
+1. struktur.
+
+2. layout dan desain update.
+
+3. bootstrap (mobile view).
