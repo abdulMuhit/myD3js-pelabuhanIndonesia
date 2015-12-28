@@ -1,57 +1,146 @@
+/*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ 
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+*/
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+* {
+    font-size: 12px;
+    font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+}
+
 body {
-	font-family: times new roman, arial, sans-serif;
-	color: #381919;
-	cursor:default;
-	padding:3px;
-	cursor:auto;
-	width: 70%;
-	min-width: 760px;
-	max-width: 1344px;
-	max-height: 2200px;
-	height:2000px;
-	min-height: 100%;  
-	position: relative;
-	margin: 20px auto 0 auto;
-	background: rgba(182, 191, 201, 0.8);
-	-webkit-box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
-	-moz-box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
-	box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
-	border-radius:12px;   
+    margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    color: #381919;
+    cursor:auto;
+    position: relative;
+    background: rgba(182, 191, 201, 0.8);
+    -webkit-box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
+    box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.12);
+    border: solid #564B7D;
+    border-radius: 18px;
+    margin: 0 auto;
 }
 
 .positive{
-		fill: #204212;
-		fill-opacity: 0.9;
-	}
-	
+        fill: #204212;
+        fill-opacity: 0.9;
+    }
+    
 .negative{
-		fill: #B62113;
-		fill-opacity: 0.9;
-	}
-	
+        fill: #B62113;
+        fill-opacity: 0.9;
+    }
+    
 .axis path,
 .axis line {
-			fill: none;
-			stroke: black;
-			shape-rendering: crispEdges;
-	}
-	
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges;
+    }
 .axis text {
-			
-			font-size: 10px;	
-	}
-	
+            
+            font-size: 10px;    
+    }
+    
 li{
-	overflow:hidden;
-	
-}
-ul{
-	padding-left: 0;
-	padding-right: 0;
-}
-
-#chart-container{
-	float:left;
+    text-decoration: none;
+    overflow: hidden;
 }
 
 .background {
@@ -60,20 +149,16 @@ ul{
 }
 
 header {
-	max-width:900px;
-	width: 100%;
-	height:133px;
-	float:none;
-	background-color: #2C3E50;
-	border-radius:16px;
+
+    margin-top: 5%;
+    background-color: #2C3E50;
+    border-radius:16px;
+    min-height: 133px;
 }
 
 #logo {
-	max-width:150px;
-	width: 15%;
-	height:133px;
-	float:left;
-    white-space: nowrap;
+    max-width:150px;
+    height:133px;
     text-align: center;
 }
 
@@ -85,75 +170,96 @@ header {
 }
 
 #logo img {
-	max-width:100px;
-	vertical-align:middle;
+    max-block-size: 100px;
+    vertical-align:middle;
 }
 
-
-#contentheader {	
-	max-width:900px;
-	width:80%;
-	height:133px;
-}
-
-#contentheader h1 {
-	text-align: center;	
-	font-size: 1.3em;	
-	vertical-align:middle;
-	padding:50px;
-	margin-left:200px;
-	color: aliceblue;
+#mainjudul  {
+    	text-align: center; 
+    	font-size: 1.8em;   
+    	color: wheat;
+	display:block;
+	padding:3%;
 }
 
 .feature{
-  fill: #366E19;
-  cursor: pointer;
+  	fill: #366E19;
+  	cursor: pointer;
 }
 
 .feature.active {
   fill: #2D3C26;
 }
-
 .feature:hover {
   fill: #2D3C26;
 }
 
-div.tooltip {
-            line-height: 1;
-            font-weight: bold;
-            font-size: 12px;
-            padding: 6px;
-            background: rgba(255, 255, 255, 0.8);
-            color: #000;
-            border-radius: 4px;
-            border-color: black;
-            border: solid 1px;
-            z-index: 2000;
-            position: absolute;
-			text-align: center;
-			vertical-align: middle;   
-			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-			pointer-events: none;                  
-        }
-		   
-footer {
-	height:100px;
-	clear: both;
-	background-color: #344658;
-	max-width:900px;
-	width: 100%;
-	border-radius: 10px;
-	
+main {
+        padding: 2%;
 }
-#left-footer {
-	
-	height:100px;
-	float:left;
-	background-color: #344658;
-	max-width:100px;
-	width: 17%;
-    white-space: nowrap;
+
+article {
+	margin: 1% auto;
+}
+    
+svg { 
+    border-radius: 2%;
+	max-width: 93%;
+	max-height: 93%;
+}
+
+#chart {
+    overflow: visible !important;
+}
+
+#container {    
+    	height: 500px;
+	max-width: 93%;
+	margin: 0 auto;
+}
+
+.urut {
+  display: inline;
+}
+
+#chart-container {
+	border: solid 1px #333;
+    	border-radius: 2%;  
+	display: inline-block;
+	padding-bottom: 100%;
+	position: relative;
+	vertical-align: middle;
+	width: 100%;
+	padding:0px;    
+}
+
+footer {
+    height:100px;
+    background-color: #344658;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#middle-footer {
+    height: 100px;
+    background-color: #2C3E50;
+    color:#FFF;
+    border-radius: 10px;
+    max-width: 100%;
     text-align: center;
+}
+
+#left-footer {    
+    height: 100px;
+    max-width: 100%;
+    text-align: center;
+}
+
+#right-footer {
+    height:100px;
+    max-width: 100%;
+    text-align: center;
+	background-color: #344658;
 	border-radius: 10px;
 }
 
@@ -164,40 +270,6 @@ footer {
     vertical-align: middle;
 }
 
-#left-footer img {
-	max-width:100px;
-	vertical-align:middle;
-	border-radius: 10px;
-	margin:24px;
-}
-
-#middle-footer {
-	
-	height:100px;
-	float:right;
-	background-color: #2C3E50;
-	color:#FFF;
-	border-radius: 10px;
-	max-width:695px;
-	width: 73%;
-    white-space: nowrap;
-    text-align: center;
-	display: inline-block;
-	
-}
-
-#right-footer {
-	
-	height:100px;
-	float:right;
-	background-color: #344658;
-	max-width:100px;
-	width: 14%;
-    white-space: nowrap;
-    text-align: center;
-	border-radius: 10px;
-}
-
 #right-footer:before {
     content: "";
     display: inline-block;
@@ -205,36 +277,167 @@ footer {
     vertical-align: middle;
 }
 
+#left-footer img {
+    max-width: 90%;
+    vertical-align:middle;
+}
+
 #right-footer img {
-	max-width:100px;
-	vertical-align:middle;
-	margin:1px;
-	border-radius: 10px;
-	
-}
-
-#end {
-    display: block;
-    clear: both;
-    text-align: center;
-}
-
-h1, h2, h3, h4 {
-font-size: 1.2em;
-color: #381919;
-}
-
-article {
-
-padding: 0.5em;
-margin: 0.5em;
-
+    vertical-align:middle;
 }
 
 a:visited {
-color: beige;
+	color: beige;
 }
 
 a:hover {
-color: black;
+	color: black;
+}
+
+div.tooltip1 {
+        line-height: 1;
+        font-weight: bold; 
+        font-size: 12px;
+        padding: 6px;
+        background: rgba(255, 255, 255, 0.8);
+        color: #000;
+        border-radius: 4px;
+        border-color: black;
+        border: solid 1px;
+        z-index: 2000;
+        position: absolute;
+		text-align: center;
+		vertical-align: middle;   
+		box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+		pointer-events: none;                  
+        }
+		
+
+div.tooltip {
+        line-height: 1;
+        font-weight: bold; 
+        font-size: 12px;
+        padding: 6px;
+        background: rgba(255, 255, 255, 0.8);
+        color: #000;
+        border-radius: 4px;
+        border-color: black;
+        border: solid 1px;
+        z-index: 2000;
+        position: absolute;
+		text-align: center;
+		vertical-align: middle;   
+		box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+		pointer-events: none;                  
+}
+
+#end {
+	text-align:center;
+}
+
+@media only screen and (max-width: 375px) {
+    /* Style adjustments for viewports that meet the condition */
+	.navbar-brand {
+		font-size: 70%;
+	}
+	#logo img {
+		max-block-size: 50px;
+		margin-left: -6px;
+	}
+	#mainjudul {
+		text-align: right;
+		font-size: 1em;
+		padding-right: 16%;
+		top: -100px;
+		margin-left: 27%;
+	}
+	header {
+		height: 110px;
+	}
+	.footer2 {
+		border-radius: 10%;
+		background-color: #344658;
+	}
+	footer {
+		background-color: transparent;
+		border:none;
+	}	
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a, a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre, blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr, img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
+    }
 }
