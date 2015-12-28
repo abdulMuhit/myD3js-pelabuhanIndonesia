@@ -1,25 +1,25 @@
-var dataset;
+  var dataset;
 
 //Define bar chart function 
 	function barChart(dataset){	
-
-		//Set width and height as fixed variables
-		var w = 600;
-		var h = 600;
+	
+		var margin = {top: 20, right: 20, bottom: 0, left: 90};
+		var w = 960 - margin.left - margin.right,
+			h = 350 - margin.top - margin.bottom;		
 		var padding = 25;
-
+		
 		//Scale function for axes and radius
 		var yScale = d3.scale.linear()
 						.domain(d3.extent(dataset, function(d){return d.selisih_ekspor_impor;}))
-						.range([w+padding,padding]);
-
+						.range([h+padding,padding]);
+						
 		var xScale = d3.scale.ordinal()
 						.domain(dataset.map(function(d){ return d.nama_provinsi;}))
-						.rangeRoundBands([padding,h+padding],.5);
+						.rangeRoundBands([padding,w+padding],.1);
 
 		//Create y axis
-		var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(5);//.tickFormat(formatPercent);
-
+		var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(10);//.tickFormat(formatPercent);
+		
 		//Define key function
 		var key = function(d){return d.nama_provinsi};
 
@@ -30,28 +30,12 @@ var dataset;
 
 		//Create svg element
 		var svg = d3.select("#chart-container").append("svg")
-				.attr("width", w).attr("height", h)
-				.attr("id", "chart")
-				.attr("viewBox", "-50 150 "+w+ " 450")
-				.attr("preserveAspectRatio", "xMinYMin");
-		
-		//Resizing function to maintain aspect ratio (uses jquery)
-		var aspect = w / h;
-		var chart = $("#chart");
-			$(window).on("resize", function() {
-			    var targetWidth = $("body").width();
-			   	
-	    		if(targetWidth<w){
-	    			chart.attr("width", targetWidth); 
-	    			chart.attr("height", targetWidth / aspect); 			
-	    		}
-	    		else{
-	    			chart.attr("width", w);  
-	    			chart.attr("height", w / aspect);	
-	    		}
-			});
-
-
+					.attr("viewBox", "0 0 960 500")
+					.append("g")
+					.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+					.attr("id", "chart")
+					.attr("preserveAspectRatio", "xMinYMin");
+			
 		//Initialize state of chart according to drop down menu
 		var state = d3.selectAll("option");
 
@@ -63,7 +47,7 @@ var dataset;
 		    .attr("class", function(d){return +d.selisih_ekspor_impor < 0 ? "negative" : "positive";})
 		    .attr({
 		    	x: function(d){
-		    		return xScale(d.nama_provinsi)+50;
+		    		return xScale(d.nama_provinsi);
 		    	},
 		    	y: function(d){
 		    		return yScale(Math.max(0, d.selisih_ekspor_impor)); 
@@ -73,49 +57,42 @@ var dataset;
 		    		return Math.abs(yScale(d.selisih_ekspor_impor) - yScale(0)); 
 		    	}
 		    })
-		    .on('mouseover', function(d){
-							d3.select(this)
-							    .style("opacity", 0.2)
-							    .style("stroke", "black")
+		.on('mouseover', function(d){
+			d3.select(this)
+			.style("opacity", 0.2)
+			.style("stroke", "black")
 					
-					var info = div
-							    .style("opacity", 1)
-							    .style("left", (d3.event.pageX-150) + "px")
-							    .style("top", (d3.event.pageY-30) + "px")
-							    .text(d.nama_provinsi);
-
-					if(state[0][0].selected){
-						info.append("p")
-								.text(d.selisih_ekspor_impor);
-
-					}
-					else if(state[0][1].selected){
-						info.append("p")
-								.text(d.total_muat);
-					}
+		var info = div
+			.style("opacity", 1)
+			.style("left", (d3.event.pageX-150) + "px")
+			.style("top", (d3.event.pageY-30) + "px")
+			.text(d.nama_provinsi);
 					
-					else if(state[0][2].selected){
-						info.append("p")
-							  
-								.text(d.total_bongkar);
-					}
-
-						})
-        				.on('mouseout', function(d){
-        					d3.select(this)
-							.style({'stroke-opacity':0.5,'stroke':'#a8a8a8'})
-							.style("opacity",1);
-
-							div
-	    						.style("opacity", 0);
-        				});
+		if(state[0][0].selected){
+			info.append("p")
+			.text(d.selisih_ekspor_impor);
+		}
+		else if(state[0][1].selected){
+		info.append("p")
+			.text(d.total_muat);
+		}
+		else if(state[0][2].selected){
+			info.append("p")
+			.text(d.total_bongkar);
+		}
+		})
+        	.on('mouseout', function(d){
+        		d3.select(this)
+			.style({'stroke-opacity':0.5,'stroke':'#a8a8a8'})
+			.style("opacity",1);
+		div.style("opacity", 0);
+        	});
 
 		//Add y-axis
 		svg.append("g")
-				.attr("class", "y axis")
-				.attr("transform", "translate(40,0)")
-				.call(yAxis);
-
+			.attr("class", "y axis")
+			.attr("transform", "translate(0,0)")
+			.call(yAxis);
 		//Sort data when sort is checked
 		d3.selectAll(".checkbox").
 		on("change", function(){
@@ -129,7 +106,6 @@ var dataset;
 			transition.selectAll("rect")
 			.delay(delay)
 			.attr("x", function(d){return x0(d.nama_provinsi);});
-
 		})
 
 		//Function to sort data when sort box is checked
@@ -145,12 +121,10 @@ var dataset;
 					var out = function(a,b){return b.total_muat - a.total_muat;}
 					return out;
 				}
-				
 				else if(sort[0][0].checked && state[0][2].selected){
 					var out = function(a,b){return b.total_bongkar - a.total_bongkar;}
 					return out;
 				}
-				
 				else{
 					var out = function(a,b){return d3.ascending(a.kode_provinsi, b.kode_provinsi);}
 					return out;
@@ -160,9 +134,7 @@ var dataset;
 		//Change data to correct values on input change
 			d3.selectAll("select").
 			on("change", function() {
-			
 				var value= this.value;
-
 				if(value=="tMuat"){
 					var x_value = function(d){return d.total_muat;};
 					var color = function(d){return d.total_muat < 0 ? "negative" : "positive";};
@@ -218,9 +190,7 @@ var dataset;
 			    	y: y_value,
 			    	width: xScale.rangeBand(),
 			    	height: height_value
-							
 				});
-
 				//Update y-axis
 				svg.select(".y.axis")
 					.transition()
@@ -232,7 +202,7 @@ var dataset;
 	};
 
 	//Load data and call bar chart function 
-	d3.csv("http://data.go.id/dataset/63db3064-1183-4afc-980f-b5089685095e/resource/c0de5494-44ba-4da3-843e-484a4da067f7/download/transportasilautperprovinsi2009.csv", function(error,data){
+d3.csv("http://data.go.id/dataset/63db3064-1183-4afc-980f-b5089685095e/resource/c0de5494-44ba-4da3-843e-484a4da067f7/download/transportasilautperprovinsi2009.csv", function(error,data){
 				if(error){
 					console.log(error);
 				}
@@ -251,6 +221,7 @@ var width = document.getElementById("container").offsetWidth - 2,
     height = document.getElementById("container").offsetHeight - 2,
     active = d3.select(null);
 
+// var projection = d3.geo.naturalEarth();
 var projection = d3.geo.mercator();
 
 var defaultZoom = 6;
@@ -262,10 +233,10 @@ var path = d3.geo.path()
     .projection(projection);
 	
 var tiptext = "no data";
-
+	
 var tooltipdiv = d3.select("body")
 	.append("div")
-	.attr("class", "tooltip")
+	.attr("class", "tooltip1")
 	.style("visibility", "hidden")
 
 var tipshow = function() {
@@ -284,9 +255,7 @@ var tipshow = function() {
 		})
 		.style("left", (d3.event.pageX - 200) + "px")
 		.style("top", (d3.event.pageY) + "px");
-
 }
-
 
 var tiphide = function() {
 	tooltipdiv.style("visibility", "hidden");
@@ -316,15 +285,13 @@ svg
     .call(zoom.event);
 
 d3.json("https://bitbucket.org/rifani/geojson-political-indonesia/raw/0e89dcb0b0454c5afffd414fd0cd0c25f1688d10/IDN_adm_1_province.json", function(error, ina) {
-  g.selectAll("path")
-       .data(ina.features)
-	   // .data(ina.feature)
-  
-    .enter().append("path")
-      .attr("d", path)
-      .attr("class", "feature")
-      .on("click", clicked);
-
+  	g.selectAll("path")
+       		.data(ina.features)
+		.enter().append("path")
+      		.attr("d", path)
+      		.attr("class", "feature")
+      		.on("click", clicked);
+	  
 // map the coordinates
 
  g.selectAll("circle")
@@ -372,7 +339,6 @@ function clicked(d) {
       .duration(750)
       .call(zoom.translate(translate).scale(scale).event);
 }
-
 });
 
 function reset() {
@@ -383,7 +349,6 @@ function reset() {
   svg.transition()
       .duration(750)
       .call(zoom.translate([defaultTranslateX, defaultTranslateY]).scale(defaultZoom).event);
-
 }
 
 function zoomed() {
@@ -398,10 +363,7 @@ function zoomed() {
             self.style("stroke-width", r < 4 ? (r < 2 ? 0.5 : 1) : 2);
             return r;
         });
-      			
 }
-
-
 
 // If the drag behavior prevents the default click,
 // also stop propagation so we don’t click-to-zoom.
@@ -434,5 +396,4 @@ rescale();
  rescale();
  d3.select("#container").transition().delay(1000).duration(500).style("opacity", "1");
  d3.select("#social").transition().delay(1000).duration(500).style("opacity", "1");
-				
 });
